@@ -28,7 +28,9 @@ object Benchmark extends App {
 
   val size = Trie.size(Dict)
   val contains = Trie.contains(Dict) _
-  val maxDistance = 4
+  // Performances degrade exponentially - from maxDistance = 3 it start to be slow.
+  // At 4, naive levensthein is twice faster ...
+  val maxDistance = 2
   val trie = TrieSearch.find(Dict)(_, maxDistance)
   val anaMap = AnagramMap.find(AnaDict) _
   val leven = Levenshtein.find(DictContent)(_, maxDistance)

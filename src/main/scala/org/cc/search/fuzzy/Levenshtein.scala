@@ -14,7 +14,7 @@ object Levenshtein {
     words.par.filter(distance(word,_) <= maxDist)
 
   // Levensthein distance function
-  // Taken from http:// ...
+  // Taken from https://searchcode.com/codesearch/view/79494918/
   private[this] def distance(s1: String, s2: String): Int = {
     val dist = Array.tabulate(s2.length + 1, s1.length + 1) { (j, i) =>
       if (j == 0) i else if (i == 0) j else 0
